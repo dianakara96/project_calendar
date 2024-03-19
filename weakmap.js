@@ -1,46 +1,63 @@
-class Calendar {
-    constructor(title, events = []) {
-      this.title = title;
-      this.events = events;
+const events = [
+    {
+        title: 'Church',
+        date:new Date('2024-03-17T11:00:00'),
+        Location: 'St.Jude Church',
+        attendees: new Set(['Evrryone'])
+    },
+    {
+        title: 'School',
+        date:new Date('2024-03-18T11:00:00'),
+        location: 'Zindua School',
+        attendees: new Set(['Diana', 'GIn', 'Jane'])
+    },
+    {
+        title: 'Lunch with friends',
+        date: new Date('2024-03-19T11:00:00'),
+        location: 'Jiko Restaurant',
+        attendees: new Set(['Islam', 'Caren', 'Reyna'])
+    },
+    {
+        title: 'School',
+        date:new Date('2024-03-20T11:00:00'),
+        location: 'Zindua School',
+        attendees: new Set(['Sarah', 'David', 'James'])
+    },
+    {
+        title: 'Movies',
+        date:new Date('2024-03-21T11:00:00'),
+        locatiin: 'Cinema Max',
+        attendees: new Set(['Nevy', 'Brian', 'Eugene'])
+    },
+    {
+        title: 'School',
+        date:new Date('2024-03-22T11:00:00'),
+        location: 'Zindua School',
+        attendees: new Set(['Prezzy', 'Jerry', 'Tom'])
+    },
+    {
+        title: 'Birthday Party',
+        date:new Date('2024-03-23T11:00:00'),
+        location: 'Tribe Hotel',
+        attendees: new Set(['Precious', 'Chantel', 'Hemmedy', 'Miriam'])
     }
-  
-    addEvent(event) {
-      this.events.push(event);
-      return this;
-    }
-  
-    getEvents() {
-      return this.events;
-    }
-  
-    filterEventsByDate(date) {
-      const currentDate = new Date();
-      currentDate.setHours(0, 0, 0, 0);
-      return this.events.filter((event) => {
-        const eventDate = new Date(event.date);
-        eventDate.setHours(0, 0, 0, 0);
-        return eventDate >= currentDate && event.date.split('-')[1] === date.split('-')[1];
-      });
-    }
-  
-    displayEvents() {
-      let strEvents = '';
-      for (const event of this.events) {
-        strEvents += `Title: ${event.title}, Date: ${event.date}, Location: ${event.location}, Attendees: ${event.attendees}\n`;
-      }
-      return strEvents;
-    }
-  }
-  
-  const calendar1 = new Calendar('Title and Date of each Event:', [
-    { title: 'Church day', date: '2024-03-17', location: 'Church', attendees: 'Everyone' },
-    { title: 'School', date: '2024-03-18', location: 'Zindua school', attendees: 'Diana, Gin, Jane' },
-    { title: 'Lunch with Friends', date: '2024-03-19', location: 'Jiko Restaurant', attendees: 'Islam,Caren,Reyna' },
-    { title: 'School', date: '2024-03-20', location: 'Zindua School', attendees: 'Sarah,David,James' },
-    { title: 'Movies', date: '2024-03-21', location: 'Cinema max', attendees: 'Nevy,Brian,Eugene' },
-    { title: 'School', date: '2024-03-22', location: 'Zindua School', attendees: 'Preez,Jery,Tom' },
-    { title: 'Birthday Party', date: '2024-03-24', location: 'Tribe Hotel', attendees: 'Precious,Chantel,Hemedy,Miriam' },
-  ]);
-  
-  const upcomingEvents = calendar1.filterEventsByDate(new Date().toISOString().split('T')[0]);
-  console.log(upcomingEvents.map(event => `Title: ${event.title}, Date: ${event.date.split('T')[0]}, Location: ${event.location}, Attendees: ${event.attendees}`).join('\n'));
+];
+
+console.log(events);
+
+const eventOrganizers = new WeakMap();
+
+eventOrganizers.set(events[0], 'Diana');
+eventOrganizers.set(events[1], 'Sarah');
+eventOrganizers.set(events[2],'Islam' );
+eventOrganizers.set(events[3], 'David');
+eventOrganizers.set(events[4], 'Eugene');
+eventOrganizers.set(events[5], 'Jerry');
+eventOrganizers.set(events[6], 'Precious');
+
+
+for (const event of events) {
+    const organizer = eventOrganizers.get(event);
+    console.log(`Event: ${event.title}, Organizer: ${organizer}`);
+
+}

@@ -43,16 +43,16 @@ class Calendar {
 }
 
 const calendar1 = new Calendar('Title and Date of each Event:', [
-  { title: 'Church day', date: '2024-03-17', location: 'Church', attendees: ['Everyone'] },
+  { title: 'Church day', date: '2024-03-17', location: 'St.Jude church', attendees: ['Everyone'] },
   { title: 'School', date: '2024-03-18', location: 'Zindua School', attendees: ['Diana,Gin,Jane'] },
   { title: 'Lunch with Friends', date: '2024-03-19', location: 'Jiko Restaurant', attendees: ['Islam,Caren,Reyna'] },
   { title: 'School', date: '2024-03-20', location: 'Zindua School', attendees: ['Sarah,David,James'] },
   { title: 'Movies', date: '2024-03-21', location: 'Cinema max', attendees: ['Nevy,Brian,Eugene'] },
   { title: 'School', date: '2024-03-22', location: 'Zindua School', attendees: ['Preez,Jerry,Tom'] },
-  { title: 'Birthday Party', date: '2024-03-24', location: 'Tribe hotel', attendees: ['precious,Chantel,Hemedy,Miriam'] },
+  { title: 'Birthday Party', date: '2024-03-23', location: 'Tribe hotel', attendees: ['precious,Chantel,Hemedy,Miriam'] },
 ]);
 
-console.log(calendar1.addAttendeeToEvent('Church day', 'New Attendee'));
+console.log(calendar1.addAttendeeToEvent());
 console.log(calendar1.displayEvents());
 
 
